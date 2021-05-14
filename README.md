@@ -16,7 +16,7 @@ Tailwind
 
 ## **Wireframe for game**
 
-![Wirefram for Project 1](Wireframe.jpg)
+![Wirefram for Project 1](images/Wireframe.jpg)
 
 ## **MVP Goals**
 
