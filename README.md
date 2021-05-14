@@ -16,8 +16,24 @@ Tailwind
 
 ## **Wireframe for game**
 
+![Wirefram for Project 1](Wireframe.jpg)
+
 ## **MVP Goals**
 
+[] A opening screen with (Start) and (How to Play) buttons
+[] Creating a park-like area for player to move around
+[] Make a moveable player
+[] Have objects (bottle and diversions) randomly pop up on screen
+[] Have a viewable timer that ends the game
+[] Have a counter to show how many objects "kicked"
+[] Auto end game if bottle not kicked
+
 ## **Stretch Goals**
+
+[] Ability to choose from multiple characters
+[] Animating the object being kicked (flying off screen)
+[] Adding mobile "diversions" running across screen
+[] Increasing diversions everytime counter increases
+[] Have player gain speed as you kick more items
 
 ## **Any potential roadblocks**
