@@ -36,7 +36,7 @@ Tailwind
 
 ## **Stretch Goals**
 
-[ ] Ability to choose from multiple characters
+[ ] Change direction of image as player moves
 
 [ ] Animating the object being kicked (flying off screen)
 
