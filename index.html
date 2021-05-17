@@ -7,12 +7,6 @@
         <link rel="stylesheet" href="style.css">
         <script src="./script/scripts.js"></script>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <style type="text/css">
-            canvas {
-                border: 5px solid black; 
-                background-color: lightgreen;
-            }
-        </style>
         <title>Kick the Bottle</title>
     </head>
     <body class="border-2 border-black">
@@ -23,18 +17,18 @@
                 </div>
                 <div>
                     <div class="hidden sm:flex my-10">
-                        <a class="border-2 border-black">
+                        <div class="border-2 border-black">
                             <h1 class="font-bold text-2xl text-center">Player1</h1>
                             <img class="my-2 w-1/2" src="images/scoreboard-mock.jpg" alt="">
-                        </a>
-                        <a class="border-2 border-black">
-                            <h1 class="font-bold text-2xl text-center">Timer</h1>
-                            <img class="my-2 w-1/2" src="images/timer-mock.jpeg" alt="">                                  
-                        </a>
-                        <a class="border-2 border-black">
+                        </div>
+                        <div class="border-2 border-black">
+                            <h3>TIMER: <span id="timer">10</span></h3>
+                            <button id="startGame">Start</button>                                 
+                        </div>
+                        <div class="border-2 border-black">
                             <h1 class="font-bold text-2xl text-center">Player2</h1>
                             <img class=" w-1/2" src="images/scoreboard-mock.jpg" alt="">
-                        </a>
+                        </div>
                     </div>
                 </div>    
             </div>
@@ -45,7 +39,8 @@
                 <p>Watch out for BIRDs!! Kicking them will end the game.</p>
                 <p>Use arrow keys to move player around the map</p>
                 <main  id="main">
-                    <canvas id="game" height="500" width="500" >HTML5 and JavaScript needs to be supported</canvas>
+                    <canvas id="canvas" style="border: 5px solid black; width: 516px; height: 516px;
+                    " >HTML5 and JavaScript needs to be supported</canvas>
                 </main>
                 <input id="start-btn" type="button" value="Start Game">
             </div>
