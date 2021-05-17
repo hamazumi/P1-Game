@@ -12,8 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById ("canvas");
     let ctx = canvas.getContext("2d");
     let keyPresses = {};
-    let positionX = 0;
-    let positionY = 0;
+    let positionX = 125;
+    let positionY = 50;
     let img = new Image();
 
     //TIMER
@@ -72,16 +72,24 @@ window.addEventListener('DOMContentLoaded', () => {
          
          //Event 
          if (keyPresses.ArrowUp) {
-             positionY -= MOVEMENT_SPEED;
+            if (positionY - MOVEMENT_SPEED > 0) {
+                positionY -= MOVEMENT_SPEED;
+            }
          } else if (keyPresses.ArrowDown) {
-             positionY += MOVEMENT_SPEED;
+            if (positionY + SCALED_HEIGHT + MOVEMENT_SPEED < canvas.height) {
+                positionY += MOVEMENT_SPEED;
+            }
          }
  
          if (keyPresses.ArrowLeft) {
-             positionX -= MOVEMENT_SPEED;
+            if (positionX - MOVEMENT_SPEED > 0){
+                positionX -= MOVEMENT_SPEED;
+            }
          } else if (keyPresses.ArrowRight) {
-             positionX += MOVEMENT_SPEED;
-         }
+            if (positionX + SCALED_WIDTH + MOVEMENT_SPEED < canvas.width) {
+                positionX += MOVEMENT_SPEED;
+            }         
+        }
  
          drawFrame(0, 0, positionX, positionY);
  
