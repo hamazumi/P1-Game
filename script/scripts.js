@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
                bruce.y -= bruce.speed;
            }
         } else if (keyPresses.ArrowDown) {
-           if (bruce.y + bruce.height + bruce.speed < canvas.height) {
+           if (bruce.y + bruce.height + bruce.speed < 120) {
                bruce.y += bruce.speed;
            }
         }
@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
                bruce.x -= bruce.speed;
            }
         } else if (keyPresses.ArrowRight) {
-           if (bruce.x + bruce.width + bruce.speed < canvas.width) {
+           if (bruce.x + bruce.width + bruce.speed < 280) {
                bruce.x += bruce.speed;
            }         
        }
