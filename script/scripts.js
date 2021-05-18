@@ -66,23 +66,14 @@ window.addEventListener('DOMContentLoaded', () => {
         return Math.floor(Math.random() * (max - min) + min)
     }
 
-    // Randomly spawn piece of garbage
-    const randomNum = () => {
-        return Math.floor(Math.random() * 2)
-    }
-
     // Random Water Bottle Position
-    let randomX = generateX(20, 480)
-    let randomY = generateY(20, 480)
-
-    let randomBottle = randomNum()
+    let randomX = generateX(0, 275)
+    let randomY = generateY(0, 115)
 
     //GAME PIECE CREATION
     let bruce = new Player(125, 50, 30, 30, 1, bruceImg) 
-    let bottle = new WaterBottle(100, 100, 20, 20, waterBottleImg) 
-    // let bottle = new WaterBottle(randomX, randomY, 20, 20, waterBottleImg) 
-
-
+    // let bottle = new WaterBottle(275, 115, 20, 20, waterBottleImg) 
+    let bottle = new WaterBottle(randomX, randomY, 20, 20, waterBottleImg) 
 
     //USER KEY EVENT LISTENERS
     let keyPresses = {};
@@ -109,7 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
         bruce.render()
         bottle.render()
         
-        if (bottle.alive && randomBottle === 0) {
+        if (bottle.alive) {
             bottle.collision()
             console.log("collision detected in Game Loop")
 
@@ -135,8 +126,6 @@ window.addEventListener('DOMContentLoaded', () => {
                bruce.x += bruce.speed;
            }         
        }
-
-        //drawFrame(0, 0, bruce.x, bruce.y);
 
         window.requestAnimationFrame(gameLoop);
     }
