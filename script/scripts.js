@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //GAME PIECE CREATION
     let bruce = new Player(125, 50, 30, 30, 1, bruceImg) 
     // let bottle = new WaterBottle(275, 115, 20, 20, waterBottleImg) 
-    let bottle = new WaterBottle(randomX, randomY, 20, 20, waterBottleImg) 
+    let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
 
     //USER KEY EVENT LISTENERS
     let keyPresses = {};
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
                bruce.y -= bruce.speed;
            }
         } else if (keyPresses.ArrowDown) {
-           if (bruce.y + bruce.height + bruce.speed < 120) {
+           if (bruce.y + bruce.height + bruce.speed < canvas.height) {
                bruce.y += bruce.speed;
            }
         }
@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
                bruce.x -= bruce.speed;
            }
         } else if (keyPresses.ArrowRight) {
-           if (bruce.x + bruce.width + bruce.speed < 280) {
+           if (bruce.x + bruce.width + bruce.speed < canvas.width) {
                bruce.x += bruce.speed;
            }         
        }
