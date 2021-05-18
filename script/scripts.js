@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let positionX = 125;
     let positionY = 50;
     let img = new Image();
+    
 
     //TIMER
     let timeDisplay = document.getElementById("timer");
@@ -51,7 +52,6 @@ window.addEventListener('DOMContentLoaded', () => {
      function loadImage() {
          img.src = 'images/6.64.png';
          img.onload = function() {
-             // ctx.drawImage(img, 0, 0, 60, 60, 0, 0, 30, 30);
              
              gameLoop();
          }

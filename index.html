@@ -10,39 +10,37 @@
         <title>Kick the Bottle</title>
     </head>
     <body class="border-2 border-black">
-        <div id="gameScreen">
-            <div id="title">
-                <div class="border-2 border-black text-center font-black text-5xl">
-                    <h1>Kick the Bottle!!</h1>
-                </div>
-                <div>
-                    <div class="hidden sm:flex my-10">
-                        <div class="border-2 border-black">
-                            <h1 class="font-bold text-2xl text-center">Player1</h1>
-                            <img class="my-2 w-1/2" src="images/scoreboard-mock.jpg" alt="">
-                        </div>
-                        <div class="border-2 border-black">
-                            <h3>TIMER: <span id="timer">10</span></h3>
-                            <button id="startGame">Start</button>                                 
-                        </div>
-                        <div class="border-2 border-black">
-                            <h1 class="font-bold text-2xl text-center">Player2</h1>
-                            <img class=" w-1/2" src="images/scoreboard-mock.jpg" alt="">
-                        </div>
-                    </div>
-                </div>    
+        <div id="container">
+            <div id="title" class="border-2 border-black text-center font-black text-5xl">
+                <h1>Kick the Bottle!!</h1>
             </div>
-            <div class="flex flex-col items-center" id="intro">
+            <div id="intro" class="flex flex-col items-center">
                 <h2 class="border-2 border-black text-center font-black text-5xl">Let's kick into action.</h2>
                 <p><img class="border-2 border-black" src="images/Test Bruce Lee.jpeg" alt=""></p>
                 <p>Kick as many bottles as you can before time is up.</p>
                 <p>Watch out for BIRDs!! Kicking them will end the game.</p>
                 <p>Use arrow keys to move player around the map</p>
-                <main  id="main">
-                    <canvas id="canvas" style="border: 5px solid black; width: 516px; height: 516px;
-                    " >HTML5 and JavaScript needs to be supported</canvas>
-                </main>
-                <input id="start-btn" type="button" value="Start Game">
+                <input id="start-btn" type="button" value="ENTER">
+            </div>
+            <main  id="main" class="flex flex-col items-center">
+                <canvas id="canvas" style="border: 5px solid black; width: 516px; height: 516px;
+                " >HTML5 and JavaScript needs to be supported</canvas>
+            </main>
+            <div id="bottom" class="flex flex-col items-center">
+                <div class="hidden sm:flex">
+                    <div class="border-2 border-black">
+                        <h1 class="font-bold text-2xl text-center">Player1</h1>
+                        <img class="my-2 w-1/2" src="images/scoreboard-mock.jpg" alt="">
+                    </div>
+                    <div class="border-2 border-black">
+                        <h3>TIMER: <span id="timer">10</span></h3>
+                        <button id="startGame">Start</button>                                 
+                    </div>
+                    <div class="border-2 border-black">
+                        <h1 class="font-bold text-2xl text-center">Player2</h1>
+                        <img class=" w-1/2" src="images/scoreboard-mock.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </body>

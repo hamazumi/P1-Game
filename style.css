@@ -1,3 +1,8 @@
 #intro {
   margin: auto;
 }
+
+#main,
+#bottom {
+  display: none;
+}
