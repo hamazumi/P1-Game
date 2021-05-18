@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let timeDisplay = document.getElementById("timer");
 
     //CREATE SPRITES
-    let bruceImg = new Image()
+    let bruceImg = new Image();
     bruceImg.src = 'images/6.64.png'
     let waterBottleImg = new Image()
     waterBottleImg.src = 'images/water.png'
@@ -25,31 +25,8 @@ window.addEventListener('DOMContentLoaded', () => {
         this.speed = speed
         this.alive = true
         this.img = img
-        this.render = function() {
-            ctx.drawImage(this.img, this.x, this.y)
-        }
-    }
-
-    // Water Bottle Constructor
-    function WaterBottle(x, y, width, height, img) {
-        this.x = x
-        this.y = y
-        this.width = width
-        this.height = height
-        this.alive = true
-        this.img = img
-        this.render = function() {
-            ctx.drawImage(this.img, this.x, this.y)
-        }
-        this.collision = function() {
-            if (bruce.x + bruce.width > this.x
-                && bruce.x < this.x + this.width
-                && bruce.y < this.y + this.height
-                && bruce.y + bruce.height > this.y
-                && this.alive) {
-                    this.alive = false
-                    console.log("collision detected in Water Bottle Constructor")
-                }
+        this.draw = function() {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
         }
     }
 
@@ -67,12 +44,38 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Random Water Bottle Position
-    let randomX = generateX(0, 275)
-    let randomY = generateY(0, 115)
+    let randomX = generateX(0, 285)
+    let randomY = generateY(0, 135)
+
+    // Water Bottle Constructor
+    function WaterBottle(x, y, width, height, img) {
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+        this.alive = true
+        this.img = img
+        this.draw = function() {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+        }
+        this.collision = function() {
+            if (bruce.x + bruce.width > this.x
+                && bruce.x < this.x + this.width
+                && bruce.y < this.y + this.height
+                && bruce.y + bruce.height > this.y) {
+                    this.x = generateX(0, 285);
+                    this.y = generateY(0, 135);
+                    console.log("collision detected in Water Bottle Constructor")
+                }
+        }
+    }
+
+
+
 
     //GAME PIECE CREATION
-    let bruce = new Player(125, 50, 30, 30, 1, bruceImg) 
-    // let bottle = new WaterBottle(275, 115, 20, 20, waterBottleImg) 
+    let bruce = new Player(170, 50, 30, 30, 1, bruceImg) 
+    // let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
     let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
 
     //USER KEY EVENT LISTENERS
@@ -91,22 +94,20 @@ window.addEventListener('DOMContentLoaded', () => {
      }
 
 
+
+
     //Function for player keyboard input
     function gameLoop() {
         //Always clears canvas first
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        //render Bruce
-        bruce.render()
-        bottle.render()
         
-        if (bottle.alive) {
-            bottle.collision()
-            console.log("collision detected in Game Loop")
-
-       }
+        bottle.collision()
+        //draw Bruce
+        bruce.draw()
+        bottle.draw()
+    
         
-        //Game Event 
+        //Player Movement 
         if (keyPresses.ArrowUp) {
            if (bruce.y - bruce.speed > 0) {
                bruce.y -= bruce.speed;
