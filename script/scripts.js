@@ -8,12 +8,18 @@ window.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById ("canvas");
     let ctx = canvas.getContext("2d");
     let timeDisplay = document.getElementById("timer");
-
+    let player1 = document.getElementById("player1")
+    let player2 = document.getElementById("player2")
+    let startTime = document.getElementById("startTime")
+    
     //CREATE SPRITES
     let bruceImg = new Image();
     bruceImg.src = 'images/6.64.png'
     let waterBottleImg = new Image()
     waterBottleImg.src = 'images/water.png'
+
+    //Player Scores
+    let score = 0;
 
     /*----- Variable Declarations -----*/
     // Bruce Lee Constructor
@@ -65,12 +71,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 && bruce.y + bruce.height > this.y) {
                     this.x = generateX(0, 285);
                     this.y = generateY(0, 135);
+                    score++;
                     console.log("collision detected in Water Bottle Constructor")
                 }
         }
     }
-
-
 
 
     //GAME PIECE CREATION
@@ -95,7 +100,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-
     //Function for player keyboard input
     function gameLoop() {
         //Always clears canvas first
@@ -105,6 +109,9 @@ window.addEventListener('DOMContentLoaded', () => {
         //draw Bruce
         bruce.draw()
         bottle.draw()
+
+        //Show Player1 Score
+        player1.textContent = ("Score " +score)
     
         
         //Player Movement 
