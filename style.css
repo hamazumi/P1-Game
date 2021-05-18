@@ -1,8 +1,9 @@
 #intro {
+  display: none;
   margin: auto;
 }
 
-#main,
+/* #main,
 #bottom {
   display: none;
-}
+} */
