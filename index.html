@@ -9,13 +9,13 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <title>Kick the Bottle</title>
     </head>
-    <body class="border-2 border-black">
+    <body class="">
         <div id="container">
-            <div id="title" class="border-2 border-black text-center font-black text-5xl">
+            <div id="title" class="text-center font-black text-5xl">
                 <h1>Kick the Bottle!!</h1>
             </div>
             <div id="intro" class="flex flex-col items-center">
-                <h2 class="border-2 border-black text-center font-black text-5xl">Let's kick into action.</h2>
+                <h2 class="text-center font-black text-5xl">Let's kick into action.</h2>
                 <p><img class="border-2 border-black" src="images/Test Bruce Lee.jpeg" alt=""></p>
                 <p>Kick as many bottles as you can before time is up.</p>
                 <p>Watch out for BIRDs!! Kicking them will end the game.</p>
@@ -28,17 +28,20 @@
             </main>
             <div id="bottom" class="flex flex-col items-center">
                 <div class="hidden sm:flex">
-                    <div id ="player1" class="border-2 border-black">
+                    <div id ="player1" class="">
                         <h1 class="font-bold text-2xl text-center">Player1</h1>
                         <img class="my-2 w-1/2" src="images/scoreboard-mock.jpg" alt="">
                     </div>
-                    <div id="startTime" class="border-2 border-black">
+                    <div id="startTime" class="">
                         <h3>TIMER: <span id="timer">10</span></h3>
-                        <button id="startGame">Start</button>                                 
+                        <input id="startGame" type="button" value="START">
                     </div>
-                    <div id ="player2" class="border-2 border-black">
+                    <div id="gameButtons" class="">
+                        <input id="nextPlayer" type="button" value="NEXT PLAYER">
+                        <input id="newGame" type="button" value="NEW GAME">
+                    </div>
+                    <div id ="player2" class="">
                         <h1 class="font-bold text-2xl text-center">Player2</h1>
-                        <img class=" w-1/2" src="images/scoreboard-mock.jpg" alt="">
                     </div>
                 </div>
             </div>
