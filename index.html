@@ -7,17 +7,17 @@
         <link rel="stylesheet" href="style.css">
         <script src="./script/scripts.js"></script>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <title>Kick the Bottle</title>
+        <title>QA- Kick the Bottle</title>
     </head>
     <body style="background-image: url('images/bgbruce.jpeg'); background-attachment: fixed;">
 
 
         <div id="interface" class ="fixed inset-0 flex items-center justify-center">
-            <div class="bg-white max-w-xs w-full p-6 text-center">
+            <div class="bg-opacity-50 border-8 rounded border-double border-4 border-black bg-white max-w-xs w-full p-6 text-center">
                 <h1 id="interfacePts" class="text-6xl font-bold">0</h1>
                 <p class="text-2xl mb-4">Points</p>
                 <div>
-                    <button id="startGame" class="transition duration-500 ease-out transform hover:scale-110 hover:bg-blue-800 text-xl font-bold bg-blue-600 text-white p-3 rounded-full">Start Game</button>
+                    <button id="startGame" class="border-4 border-black transition duration-500 ease-out transform hover:scale-110 hover:bg-blue-800 text-xl font-bold bg-blue-600 text-white p-3 rounded-lg">Start Game</button>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
 
         <div id="container">
             <div id="title" class="mt-5 font-bold text-center text-5xl">
-                <h1 class="text-yellow-200">Kick the Bottle!!</h1>
+                <h1 class="text-yellow-200">QA-Kick the Bottle!!</h1>
             </div>
             <div id="intro" class="flex flex-col items-center">
                 <h2 class="text-center text-yellow-200 text-4xl">Let's kick into action.</h2>
@@ -35,14 +35,14 @@
                     <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">WATCH OUT for chickens!! Kicking them will decrease your point total.</p>
                     <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">Use arrow keys to move player around the map</p>
                 </div> 
-                <button class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white p-2 font-black p-2 text-2xl tracking-widest" id="enterGame">ENTER</button>
+                <button class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white font-black p-2 text-2xl tracking-widest" id="enterGame">ENTER</button>
             </div>
-            <div id="top" class="flex hidden sm:flex justify-center justify-evenly">
-                    <div id ="player1" class="text-2xl font-bold">
-                        <h1 class="font-bold text-2xl text-center">Score: 0</h1>
+            <div id="top" class="mt-2 flex hidden sm:flex justify-center justify-evenly">
+                    <div class="font-bold text-white text-2xl" id ="player1">
+                        <h1 class="font-bold text-white text-2xl">Score: 0</h1>
                     </div>
-                    <div id="startTime" class="text-2xl font-bold">
-                        <h3>TIME REMAING: <span id="timer">10</span></h3>
+                    <div id="startTime">
+                        <h3 class="font-bold text-white text-2xl">TIME REMAING: <span id="timer">10</span></h3>
                     </div>
             </div>
                 <main  id="main" class="flex flex-col items-center">

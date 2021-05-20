@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     //DOM ELEMENTS
-
     let enterButton = document.getElementById('enterGame')
     let startButton = document.getElementById('startGame')
     let intro = document.getElementById('intro')
@@ -10,15 +9,20 @@ window.addEventListener('DOMContentLoaded', () => {
     let interfacePts = document.getElementById('interfacePts')    
     let main = document.getElementById('main')
     let canvas = document.getElementById ('canvas');
-    let ctx = canvas.getContext('2d');
     let timeDisplay = document.getElementById('timer');
     let player1 = document.getElementById('player1')
-    // let player2 = document.getElementById('player2')
-    // let startTime = document.getElementById('startTime')
     
-
-
-    //CREATE SPRITES
+    
+    
+    //Game Variables
+    let ctx = canvas.getContext('2d');
+    let kickSound = new Audio ("sounds/3.mp3")
+    let chickenSound = new Audio ("sounds/chicken-clucking-sound-1.mp3")
+    let keyPresses = {};
+    let score = 0;
+    let timeLeft = 9
+    
+    //Object Images
     let background = new Image()
     background.src = 'images/pixil-frame-0.png'
     let bruceImg = new Image();
@@ -27,27 +31,14 @@ window.addEventListener('DOMContentLoaded', () => {
     waterBottleImg.src = 'images/water.png'
     let chickenImg = new Image()
     chickenImg.src = 'images/Chicken_Feed.gif'
-
+    
+    //Background Image Load
     background.onload = function(){
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);   
     }
 
-    //Sound
-    let kickSound = new Audio ("sounds/3.mp3")
-    let chickenSound = new Audio ("sounds/chicken-clucking-sound-1.mp3")
+    //Image Contructors
 
-    //Player Scores
-    let score = 0;
-    // let score2 = 0;
-
-    // //Game Variables
-    let timeOut = false;
-    // let player1 = true;
-    // let player2 = false;
-    // let winner = false;
-    // let gameDraw = false;
-
-    /*----- Variable Declarations -----*/
     // Bruce Lee Constructor
     function Player(x, y, width, height, speed, img) {
         this.x = x
@@ -61,29 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Random X and Y coordinate generators
-    const generateX = (min, max) => {
-        min = Math.ceil(min)
-        max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min) + min)
-    }
-    
-    const generateY = (min, max) => {
-        min = Math.ceil(min)
-        max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min) + min)
-    }
-
-    // Random Water Bottle Position
-    let randomX = generateX(0, 285)
-    let randomY = generateY(0, 135)
-
-    //Random chicken position
-    let randomXc = generateX(0, 285)
-    let randomYc = generateY(0, 135)
-
-
-    // Water Bottle Constructor
+    // Water Bottle Constructor AND Collision Dectection
     function WaterBottle(x, y, width, height, img) {
         this.x = x
         this.y = y
@@ -108,7 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Chicken Constructor
+    // Chicken Constructor AND Collision Dectection
     function whiteChicken(x, y, width, height, img) {
         this.x = x
         this.y = y
@@ -132,56 +101,46 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Random X and Y coordinate generators
+    const generateX = (min, max) => {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min) + min)
+    }
+    
+    const generateY = (min, max) => {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min) + min)
+    }
 
-    //GAME PIECE CREATION
-    let bruce = new Player(170, 50, 30, 30, 1, bruceImg) 
-    // let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
+    // Random Water Bottle Position
+    let randomX = generateX(0, 285)
+    let randomY = generateY(0, 135)
+
+    //Random chicken position
+    let randomXc = generateX(0, 285)
+    let randomYc = generateY(0, 135)
+
+    //Characters 
+    let bruce = new Player(170, 50, 30, 30, 2, bruceImg) 
     let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
     let chicken = new whiteChicken(randomXc, randomYc, 15, 15, chickenImg) 
 
-    //USER KEY EVENT LISTENERS
-    let keyPresses = {};
-
-     window.addEventListener('keydown', keyDownListener, false);
-     function keyDownListener(event) {
-         keyPresses[event.key] = true;
-         console.log(event.key);
-     }
- 
-     window.addEventListener('keyup', keyUpListener, false);
-     function keyUpListener(event) {
-         keyPresses[event.key] = false;
- 
-     }
-
-
-
-
-
-
-
-     //RESET Game
-     function reset(){
-         score = 0
-         timeLeft = 9
-         player1.innerText = ("Score: " + score)
-         interfacePts.innerText = score
-         bruce = new Player(170, 50, 30, 30, 1, bruceImg) 
-         countDown()
-
-     }
-
-
-
-
-
-
-
-
-       //TIMER FUNCTION
-    let timeLeft = 9
-     
-
+    
+    //RESET Game
+    function reset(){
+        score = 0
+        timeLeft = 9
+        player1.innerText = ("Score: " + score)
+        interfacePts.innerText = score
+        bruce = new Player(170, 50, 30, 30, 2, bruceImg) 
+        bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
+        chicken = new whiteChicken(randomXc, randomYc, 15, 15, chickenImg)
+        countDown()
+    }
+    
+    //Timer Function
     function countDown(){
         let x = setInterval(function(){
             if(timeLeft >= 0) {
@@ -195,13 +154,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
     
+    //Game Over Function
     function isGameOver () {
         let gameOver = false;
-
+        
         if(timeLeft === 0){
             gameOver = true;
         }
-
+        
         if(gameOver){
             ctx.fillStyle ="black";
             ctx.font = "20px Verdana";
@@ -209,21 +169,20 @@ window.addEventListener('DOMContentLoaded', () => {
             interface.style.display = 'flex'
             interfacePts.innerText = score
         }
-
-
+        
         return gameOver;
     }
+    
 
-
-    //Start Button
+    //Start Button Event Listeners
     startButton.addEventListener('click', () => {
         reset()
         gameLoop()
         interface.style.display = 'none'
-
+        
     })
-
-    // Enter intro screen
+    
+    // Enter Screen Event Listeners
     enterButton.addEventListener('click', () => {
         enterButton.style.display = 'none'
         intro.style.display = 'none'
@@ -231,7 +190,17 @@ window.addEventListener('DOMContentLoaded', () => {
         main.style.display = 'flex'
         interface.style.display = 'flex'
     })
-
+    
+    //User key Event Listeners
+     window.addEventListener('keydown', keyDownListener, false);
+     function keyDownListener(event) {
+         keyPresses[event.key] = true;
+     }
+ 
+     window.addEventListener('keyup', keyUpListener, false);
+     function keyUpListener(event) {
+         keyPresses[event.key] = false;
+     }
 
 
     //Function for player keyboard input
@@ -279,9 +248,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
         window.requestAnimationFrame(gameLoop);
     }
-
-
-
-
-
 })
