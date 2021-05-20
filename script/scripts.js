@@ -13,8 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let ctx = canvas.getContext('2d');
     let timeDisplay = document.getElementById('timer');
     let player1 = document.getElementById('player1')
-    let player2 = document.getElementById('player2')
-    let startTime = document.getElementById('startTime')
+    // let player2 = document.getElementById('player2')
+    // let startTime = document.getElementById('startTime')
     
 
 
@@ -154,16 +154,42 @@ window.addEventListener('DOMContentLoaded', () => {
  
      }
 
+
+
+
+
+
+
+     //RESET Game
+     function reset(){
+         score = 0
+         timeLeft = 9
+         player1.innerText = ("Score: " + score)
+         interfacePts.innerText = score
+         bruce = new Player(170, 50, 30, 30, 1, bruceImg) 
+         countDown()
+
+     }
+
+
+
+
+
+
+
+
        //TIMER FUNCTION
-    let timeLeft = 8
+    let timeLeft = 9
+     
 
     function countDown(){
-        setInterval(function(){
+        let x = setInterval(function(){
             if(timeLeft >= 0) {
                 timeDisplay.innerText = timeLeft
                 timeLeft -=1 
                 console.log(timeLeft)
             } else {
+                clearInterval(x)
                 console.log("end Time")        
             }
         }, 1000);
@@ -178,8 +204,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if(gameOver){
             ctx.fillStyle ="black";
-            ctx.font = "30px Verdana";
-            ctx.fillText("Game Over!", canvas.width/ 5, canvas.height/2)
+            ctx.font = "20px Verdana";
+            ctx.fillText("Game Over!", canvas.width/3, canvas.height/5)
             interface.style.display = 'flex'
             interfacePts.innerText = score
         }
@@ -191,8 +217,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Start Button
     startButton.addEventListener('click', () => {
+        reset()
         gameLoop()
-        countDown()
         interface.style.display = 'none'
 
     })
@@ -227,7 +253,7 @@ window.addEventListener('DOMContentLoaded', () => {
             return;
         }
         //Show Player1 Score
-        player1.innerText = ("Score: " +score)
+        player1.innerText = ("Score: " + score)
     
         
         //Player Movement 
