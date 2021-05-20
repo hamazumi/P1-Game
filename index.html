@@ -20,16 +20,18 @@
             </div>
         </div> -->
         <div id="container">
-            <div id="title" class=" text-center font-white text-5xl">
-                <h1>Kick the Bottle!!</h1>
+            <div id="title" class="mt-5 font-bold text-center text-5xl">
+                <h1 class="text-yellow-200">Kick the Bottle!!</h1>
             </div>
             <div id="intro" class="flex flex-col items-center">
-                <h2 class="text-center font-black text-5xl">Let's kick into action.</h2>
-                <p><img class="" src="images/Test Bruce Lee.jpeg" alt=""></p>
-                <p>Kick as many bottles as you can before time is up.</p>
-                <p>Watch out for BIRDs!! Kicking them will end the game.</p>
-                <p>Use arrow keys to move player around the map</p>
-                <input id="enterGame" type="button" value="ENTER">
+                <h2 class="text-center text-yellow-200 text-4xl">Let's kick into action.</h2>
+                <p class="mt-5 border-white border-8 rounded border-double "><img src="images/Test Bruce Lee.jpeg" alt=""></p>
+                <div class="mt-2 border-white border-8 rounded text-center border-double">
+                    <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">Help Bruce Lee kick as many bottles as you can before time is up.</p>
+                    <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">WATCH OUT for chickens!! Kicking them will decrease your point total.</p>
+                    <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">Use arrow keys to move player around the map</p>
+                </div>
+                <button class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white p-2 font-black p-2 text-2xl tracking-widest" id="enterGame">ENTER</button>
             </div>
             <div id="top" class="flex flex-col items-center">
                 <div class="hidden sm:flex">
@@ -41,18 +43,13 @@
                         <input id="startGame" type="button" value="START">
                     </div>
                     <div id="gameButtons" class="">
-                        <input id="nextPlayer" type="button" value="NEXT PLAYER">
                         <input id="newGame" type="button" value="NEW GAME">
                     </div>
                 </div>
             </div>
             <main  id="main" class="flex flex-col items-center">
-                <canvas id="canvas" style="border: 10px solid black; width: 800px; height: 800px;" >HTML5 and JavaScript needs to be supported</canvas>
+                <canvas class="border-white border-8 rounded" id="canvas" style="width: 800px; height: 800px;" >HTML5 and JavaScript needs to be supported</canvas>
             </main>
         </div>
     </body>
 </html>
-
-
-
-<!-- 516px; height: 516px; -->
