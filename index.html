@@ -10,15 +10,19 @@
         <title>Kick the Bottle</title>
     </head>
     <body style="background-image: url('images/bgbruce.jpeg'); background-attachment: fixed;">
-        <!-- <div class ="fixed inset-0 flex items-center justify-center">
-            <div class="bg-white max-w-md w-full p-6 text-center">
-                <h1 class="text-4xl font-bold">0</h1>
-                <p class="text-md text-grey">Points</p>
+
+
+        <div id="interface" class ="fixed inset-0 flex items-center justify-center">
+            <div class="bg-white max-w-xs w-full p-6 text-center">
+                <h1 id="interfacePts" class="text-6xl font-bold">0</h1>
+                <p class="text-2xl mb-4">Points</p>
                 <div>
-                    <button class="bg-blue-500 text-white w-full py-3 rounded-full">Start Game</button>
+                    <button id="startGame" class="transition duration-500 ease-out transform hover:scale-110 hover:bg-blue-800 text-xl font-bold bg-blue-600 text-white p-3 rounded-full">Start Game</button>
                 </div>
             </div>
-        </div> -->
+        </div>
+
+
         <div id="container">
             <div id="title" class="mt-5 font-bold text-center text-5xl">
                 <h1 class="text-yellow-200">Kick the Bottle!!</h1>
@@ -30,26 +34,20 @@
                     <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">Help Bruce Lee kick as many bottles as you can before time is up.</p>
                     <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">WATCH OUT for chickens!! Kicking them will decrease your point total.</p>
                     <p class="bg-opacity-80 font-bold p-2 text-3xl bg-black text-yellow-200">Use arrow keys to move player around the map</p>
-                </div>
+                </div> 
                 <button class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white p-2 font-black p-2 text-2xl tracking-widest" id="enterGame">ENTER</button>
             </div>
-            <div id="top" class="flex flex-col items-center">
-                <div class="hidden sm:flex">
-                    <div id ="player1" class="">
-                        <h1 class="font-bold text-2xl text-center">Player1</h1>
+            <div id="top" class="flex hidden sm:flex justify-center justify-evenly">
+                    <div id ="player1" class="text-2xl font-bold">
+                        <h1 class="font-bold text-2xl text-center">Score: 0</h1>
                     </div>
-                    <div id="startTime" class="">
-                        <h3>TIMER: <span id="timer">10</span></h3>
-                        <input id="startGame" type="button" value="START">
+                    <div id="startTime" class="text-2xl font-bold">
+                        <h3>TIME REMAING: <span id="timer">10</span></h3>
                     </div>
-                    <div id="gameButtons" class="">
-                        <input id="newGame" type="button" value="NEW GAME">
-                    </div>
-                </div>
             </div>
-            <main  id="main" class="flex flex-col items-center">
-                <canvas class="border-white border-8 rounded" id="canvas" style="width: 800px; height: 800px;" >HTML5 and JavaScript needs to be supported</canvas>
-            </main>
+                <main  id="main" class="flex flex-col items-center">
+                    <canvas class="border-white border-8 rounded" id="canvas" style="width: 800px; height: 800px;" >HTML5 and JavaScript needs to be supported</canvas>
+                </main>
         </div>
     </body>
 </html>

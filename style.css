@@ -5,6 +5,7 @@
 }
 
 #main,
-#top {
+#top,
+#interface {
   display: none;
 }
