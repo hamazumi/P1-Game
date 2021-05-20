@@ -9,28 +9,32 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <title>Kick the Bottle</title>
     </head>
-    <body class="">
+    <body style="background-image: url('images/bgbruce.jpeg'); background-attachment: fixed;">
+        <!-- <div class ="fixed inset-0 flex items-center justify-center">
+            <div class="bg-white max-w-md w-full p-6 text-center">
+                <h1 class="text-4xl font-bold">0</h1>
+                <p class="text-md text-grey">Points</p>
+                <div>
+                    <button class="bg-blue-500 text-white w-full py-3 rounded-full">Start Game</button>
+                </div>
+            </div>
+        </div> -->
         <div id="container">
-            <div id="title" class="text-center font-black text-5xl">
+            <div id="title" class=" text-center font-white text-5xl">
                 <h1>Kick the Bottle!!</h1>
             </div>
             <div id="intro" class="flex flex-col items-center">
                 <h2 class="text-center font-black text-5xl">Let's kick into action.</h2>
-                <p><img class="border-2 border-black" src="images/Test Bruce Lee.jpeg" alt=""></p>
+                <p><img class="" src="images/Test Bruce Lee.jpeg" alt=""></p>
                 <p>Kick as many bottles as you can before time is up.</p>
                 <p>Watch out for BIRDs!! Kicking them will end the game.</p>
                 <p>Use arrow keys to move player around the map</p>
-                <input id="start-btn" type="button" value="ENTER">
+                <input id="enterGame" type="button" value="ENTER">
             </div>
-            <main  id="main" class="flex flex-col items-center">
-                <canvas id="canvas" style="border: 10px solid black; width: 800px; height: 800px;
-                " >HTML5 and JavaScript needs to be supported</canvas>
-            </main>
-            <div id="bottom" class="flex flex-col items-center">
+            <div id="top" class="flex flex-col items-center">
                 <div class="hidden sm:flex">
                     <div id ="player1" class="">
                         <h1 class="font-bold text-2xl text-center">Player1</h1>
-                        <img class="my-2 w-1/2" src="images/scoreboard-mock.jpg" alt="">
                     </div>
                     <div id="startTime" class="">
                         <h3>TIMER: <span id="timer">10</span></h3>
@@ -40,11 +44,11 @@
                         <input id="nextPlayer" type="button" value="NEXT PLAYER">
                         <input id="newGame" type="button" value="NEW GAME">
                     </div>
-                    <div id ="player2" class="">
-                        <h1 class="font-bold text-2xl text-center">Player2</h1>
-                    </div>
                 </div>
             </div>
+            <main  id="main" class="flex flex-col items-center">
+                <canvas id="canvas" style="border: 10px solid black; width: 800px; height: 800px;" >HTML5 and JavaScript needs to be supported</canvas>
+            </main>
         </div>
     </body>
 </html>

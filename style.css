@@ -1,9 +1,10 @@
-#intro {
-  display: none;
-  margin: auto;
+#title,
+#player1,
+#startTime {
+  color: white;
 }
 
-/* #main,
-#bottom {
+#main,
+#top {
   display: none;
-} */
+}
