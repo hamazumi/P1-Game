@@ -101,6 +101,29 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function whiteChicken2(x, y, width, height, img) {
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+        this.img = img
+        this.draw = function() {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+        }
+        this.collision = function() {
+            if (bruce.x + bruce.width > this.x
+                && bruce.x < this.x + this.width
+                && bruce.y < this.y + this.height
+                && bruce.y + bruce.height > this.y) {
+                    chickenSound.play();
+                    this.x = generateX(0, 285);
+                    this.y = generateY(0, 135);
+                    score--;
+                    console.log("collision detected in Chicken Constructor")
+                }
+        }
+    }
+
     // Random X and Y coordinate generators
     const generateX = (min, max) => {
         min = Math.ceil(min)
@@ -121,13 +144,17 @@ window.addEventListener('DOMContentLoaded', () => {
     //Random chicken position
     let randomXc = generateX(0, 285)
     let randomYc = generateY(0, 135)
+    
+    //Random chicken #2
+    let randomXc2 = generateX(0, 285)
+    let randomYc2 = generateY(0, 135)
 
     //Characters 
     let bruce = new Player(170, 50, 30, 30, 2, bruceImg) 
     let bottle = new WaterBottle(randomX, randomY, 12, 12, waterBottleImg) 
     let chicken = new whiteChicken(randomXc, randomYc, 15, 15, chickenImg) 
+    let chicken2 = new whiteChicken2(randomXc2, randomYc2, 15, 15, chickenImg) 
 
-    
     //RESET Game
     function reset(){
         score = 0
@@ -173,7 +200,6 @@ window.addEventListener('DOMContentLoaded', () => {
         return gameOver;
     }
     
-
     //Start Button Event Listeners
     startButton.addEventListener('click', () => {
         reset()
@@ -202,26 +228,33 @@ window.addEventListener('DOMContentLoaded', () => {
          keyPresses[event.key] = false;
      }
 
-
     //Function for player keyboard input
     function gameLoop() {
         //Always clears canvas first
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         
+        //check for collision
         bottle.collision()
         chicken.collision()
+        chicken2.collision()
         
-        //draw Bruce
+        //draw objects
         bruce.draw()
         bottle.draw()
         chicken.draw()
+
+        if(score >= 3){
+            chicken2.draw()
+        }
         
+        //Check for game over 
         let result = isGameOver();
         if(result){
             return;
         }
-        //Show Player1 Score
+
+        //Show Player Score
         player1.innerText = ("Score: " + score)
     
         
