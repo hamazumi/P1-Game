@@ -117,7 +117,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     this.x = generateX(0, 285);
                     this.y = generateY(0, 135);
                     score--;
-                    console.log("collision detected in Chicken Constructor")
                 }
         }
     }
@@ -193,10 +192,8 @@ window.addEventListener('DOMContentLoaded', () => {
             if(timeLeft >= 0) {
                 timeDisplay.innerText = timeLeft
                 timeLeft -=1 
-                console.log(timeLeft)
             } else {
                 clearInterval(x)
-                console.log("end Time")        
             }
         }, 1000);
     }
