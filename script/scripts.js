@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let ctx = canvas.getContext('2d');
     let kickSound = new Audio ("sounds/3.mp3")
     let chickenSound = new Audio ("sounds/chicken-clucking-sound-1.mp3")
+    let introSound = new Audio ("sounds/fightSound.mp3")
     let keyPresses = {};
     let score = 0;
     let timeLeft = 14
@@ -232,6 +233,7 @@ window.addEventListener('DOMContentLoaded', () => {
         topBar.style.display = 'flex'
         main.style.display = 'flex'
         interface.style.display = 'flex'
+        introSound.play()
     })
     
     //User key Event Listeners
