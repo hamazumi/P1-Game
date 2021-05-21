@@ -50,4 +50,24 @@ Tailwind
 
 [ ] Have player gain speed as you kick more items
 
-## **Any potential roadblocks**
+## **Resources and References**
+
+**Images:**
+
+- https://niborset66.itch.io/pixel-bruce-kung-fu
+- https://ghostpixxells.itch.io/pixel-mart
+- https://pixelplant.itch.io/chicken-sprite-sheet
+
+**Sounds:**
+
+- https://www.101soundboards.com/
+
+**Resources:**
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage
+- https://www.youtube.com/watch?v=7Azlj0f9vas
+- https://www.youtube.com/watch?v=eI9idPTT0c4
+
+**Individuals:**
+
+- Everyone from instructors, classmates, and people outside of GA that helped me complete the game.
