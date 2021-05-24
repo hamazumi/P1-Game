@@ -310,13 +310,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (keyPresses.ArrowLeft) {
            if (bruce.x - bruce.speed > 0){
                bruce.x -= bruce.speed;
+               bruceImg.src = 'images/6.64.png';
            }
         } else if (keyPresses.ArrowRight) {
            if (bruce.x + bruce.width + bruce.speed < canvas.width) {
                bruce.x += bruce.speed;
+               bruceImg.src = 'images/6.64R.png';
            }         
        }
-
         window.requestAnimationFrame(gameLoop);
     }
 })
